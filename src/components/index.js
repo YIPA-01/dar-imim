@@ -1,0 +1,10 @@
+// Export all components from a single location
+export { default as CustomCursor } from './CustomCursor';
+export { default as Navigation } from './Navigation';
+export { default as Hero } from './Hero';
+export { default as About } from './About';
+export { default as Rooms } from './Rooms';
+export { default as Experience } from './Experience';
+export { default as DesignEthos } from './DesignEthos';
+export { default as Testimonials } from './Testimonials';
+export { default as Footer } from './Footer'; 

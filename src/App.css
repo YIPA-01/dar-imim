@@ -1,38 +1,1058 @@
-.App {
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none !important;
+}
+
+:root {
+  /* Noma-inspired Color Palette */
+  --color-cream: #faf8f5;
+  --color-warm-white: #ffffff;
+  --color-soft-beige: #f5f2ed;
+  --color-natural-brown: #8b7355;
+  --color-deep-brown: #5c4a37;
+  --color-ocean: #2c5f5d;
+  --color-ocean-light: #4a7b78;
+  --color-charcoal: #2d2d2d;
+  --color-accent: #c17f33;
+  
+  /* Typography - Noma Style */
+  --font-display: 'Crimson Text', serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Spacing - Editorial */
+  --section-padding: 160px 0;
+  --container-max: 1400px;
+  --container-padding: 0 60px;
+  
+  /* Transitions */
+  --transition-smooth: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-charcoal);
+  background-color: var(--color-cream);
+  cursor: none;
+}
+
+/* Custom Cursor - Enhanced */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+  transform: translate(-50%, -50%);
+}
+
+.weed-cursor {
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
+}
+
+.weed-cursor svg {
+  transform: rotate(15deg);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Typography - Editorial Style */
+.section-title-large {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 0.9;
+  color: var(--color-charcoal);
+  margin-bottom: 2rem;
+}
+
+.large-paragraph {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--color-charcoal);
+  margin-bottom: 3rem;
+}
+
+.body-text {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--color-charcoal);
+  margin-bottom: 2rem;
+}
+
+em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+/* Navigation - Enhanced with Background Image */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-image: url('../public/image/menu_background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem 0;
+  backdrop-filter: blur(10px);
+}
+
+.nav-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-image {
+  height: 50px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+  transition: var(--transition-smooth);
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.logo-main {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--color-warm-white);
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.logo-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.nav-links {
+  display: flex;
+  gap: 3rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-warm-white);
+  font-weight: 900;
+  font-size: 1.4rem;
+  letter-spacing: 0.03em;
+  transition: var(--transition-smooth);
+  position: relative;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  padding: 0.5rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--color-deep-brown);
+  text-transform: uppercase;
+}
+
+.nav-links a:hover {
+  transform: translateY(-2px);
+}
+
+.nav-links a:hover::before {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Hero Section - Noma Style */
+.hero-noma {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.hero-main-image {
+  width: 100%;
+  height: 100%;
+  background-image: url('../public/image/carles-rabada-TbJg-UB7mGs-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-main-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(44, 95, 93, 0.4) 0%, 
+    rgba(44, 95, 93, 0.3) 50%, 
+    rgba(82, 32, 8, 0.5) 100%);
+  z-index: 1;
+}
+
+.hero-text-overlay {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 60px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-statement {
+  margin-bottom: 4rem;
+}
+
+.hero-main-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 400;
+  line-height: 0.9;
+  color: var(--color-warm-white);
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.hero-sub-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--color-warm-white);
+  letter-spacing: 0.01em;
+}
+
+.hero-sub-title em {
+  color: var(--color-accent);
+  font-style: italic;
+}
+
+.hero-description {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+/* About Section - Editorial Layout */
+.about-noma {
+  background: var(--color-soft-beige);
+}
+
+.about-statement-section {
+  padding: 160px 0 80px;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: 60px;
+  padding-right: 60px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.about-subtitle {
+  font-size: 1.25rem;
+  color: var(--color-natural-brown);
+  font-weight: 300;
+  letter-spacing: 0.05em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.about-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8rem;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 80px 60px 160px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.about-text-block {
+  padding-top: 4rem;
+}
+
+.about-hero-image {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Rooms Section - Magazine Style with Scatter Animation */
+.rooms-noma {
+  background: var(--color-soft-beige);
+  transition: var(--transition-smooth);
+}
+
+.rooms-hero-section {
+  position: relative;
+  height: 70vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  transition: var(--transition-smooth);
 }
 
-.App-link {
-  color: #61dafb;
+.rooms-large-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-ocean) 0%, var(--color-accent) 100%);
+  z-index: -1;
+
 }
 
-@keyframes App-logo-spin {
+.rooms-title-overlay {
+  text-align: center;
+  transition: var(--transition-smooth);
+}
+
+.rooms-title-overlay .section-title-large {
+  margin-bottom: 0;
+}
+
+.rooms-content-section {
+  padding: 160px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.rooms-grid-noma {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 60px;
+  position: relative;
+  min-height: 600px;
+}
+
+.room-editorial-card {
+  background: var(--color-soft-beige);
+  overflow: hidden;
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: center center;
+  position: relative;
+  z-index: 1;
+}
+
+.room-image-large {
+  width: 100%;
+  aspect-ratio: 2/5;
+  margin-bottom: 2rem;
+  transform: translateX(var(--scatter-x, 0)) translateY(var(--scatter-y, 0)) scale(var(--scatter-scale, 1)) scale(1.05);
+  transition: var(--transition-smooth);
+}
+
+/* Room image backgrounds using actual images from rooms folder */
+.ocean-suite {
+  background-image: url('../public/image/rooms/louis-hansel-uNzjCn0A5tI-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.courtyard-room {
+  background-image: url('../public/image/rooms/taghazout_mountains.avif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.shared-sanctuary {
+  background-image: url('../public/image/rooms/mathieu-chirico-sFSZuKI2CvY-unsplash.jpg');
+  background-size: cover;
+  background-position: center 10%;
+  background-repeat: no-repeat;
+  
+}
+
+.room-text-minimal h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--color-charcoal);
+  margin-bottom: 1rem;
+}
+
+.room-text-minimal p {
+  font-size: 1rem;
+  color: var(--color-natural-brown);
+  line-height: 1.6;
+}
+
+/* Design Ethos - Sophisticated Layout with Scatter Animation */
+.design-ethos-noma {
+  background-image: url('../public/image/knit-bg.png');
+  background-size: 400px 400px;
+  background-position: center;
+  background-repeat: repeat;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.design-ethos-noma::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(44, 95, 93, 0.1);
+  z-index: 1;
+}
+
+.ethos-statement-section {
+  padding: 160px 0 80px;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: 60px;
+  padding-right: 60px;
+  text-align: center;
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  z-index: 2;
+}
+
+.ethos-statement-section .section-title-large {
+  color: var(--color-charcoal);
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+.ethos-subtitle {
+  font-size: 1.25rem;
+  color: var(--color-deep-brown);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.ethos-content-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 8rem;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 80px 60px 160px;
+  position: relative;
+  min-height: 800px;
+  z-index: 2;
+}
+
+.ethos-large-image {
+  width: 100%;
+  aspect-ratio: 4/5;
+  background-image: url('../public/image/moroccan-cape.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: center center;
+  animation: float-vertical 4s ease-in-out infinite;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+}
+
+.ethos-large-image:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.4));
+}
+
+.ethos-materials-section {
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: center center;
+}
+
+.material-showcase {
+  margin-bottom: 4rem;
+}
+
+.material-item {
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.material-item:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.material-item:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.material-item:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.material-item h4 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--color-charcoal);
+  margin-bottom: 0.75rem;
+  transition: color 0.3s ease;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.material-item:hover h4 {
+  color: var(--color-deep-brown);
+}
+
+.material-item p {
+  font-size: 1.4rem;
+  color: black;
+  line-height: 1.7;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.ethos-detail-image {
+  width: 100%;
+  aspect-ratio: 1;
+  background-image: url('../public/image/Nature-Inspired_Twisted_Suar_Wood_Wall_Coat_Rack-removebg-preview.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: center center;
+  animation: float-vertical-slow 6s ease-in-out infinite;
+  filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.25));
+}
+
+.ethos-detail-image:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 12px 35px rgba(0, 0, 0, 0.35));
+}
+
+/* Animation Keyframes */
+@keyframes float-vertical {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes float-vertical-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeInUp {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(30px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+/* Design Ethos Scattered Animation States - Enhanced */
+.design-ethos-noma.scattered .scatter-title {
+  transform: translateX(-120px) translateY(-40px) scale(0.9);
+  opacity: 0.7;
+}
+
+.design-ethos-noma.scattered .scatter-main-image {
+  transform: translateX(-160px) translateY(60px) scale(1.15);
+  z-index: 4;
+  animation: float-vertical 3s ease-in-out infinite;
+}
+
+.design-ethos-noma.scattered .scatter-materials {
+  transform: translateX(100px) translateY(-80px) scale(0.9);
+  z-index: 2;
+}
+
+.design-ethos-noma.scattered .scatter-detail-image {
+  transform: translateX(200px) translateY(-160px) scale(1.25);
+  z-index: 3;
+  animation: float-vertical-slow 5s ease-in-out infinite;
+}
+
+/* Enhanced hover effects for scattered state */
+.design-ethos-noma.scattered .scatter-main-image:hover {
+  transform: translateX(-160px) translateY(60px) scale(1.3);
+  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.12);
+  animation-play-state: paused;
+}
+
+.design-ethos-noma.scattered .scatter-detail-image:hover {
+  transform: translateX(200px) translateY(-160px) scale(1.4);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+  animation-play-state: paused;
+}
+
+/* Testimonials - Elegant */
+.testimonials {
+  padding: var(--section-padding);
+  background: var(--color-ocean);
+  color: var(--color-warm-white);
+  text-align: center;
+}
+
+.testimonial-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.testimonial-slider {
+  position: relative;
+  min-height: 300px;
+  margin-bottom: 4rem;
+}
+
+.testimonial {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: var(--transition-smooth);
+}
+
+.testimonial.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.testimonial blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.4;
+  margin-bottom: 3rem;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.testimonial cite {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-style: normal;
+}
+
+.testimonial cite strong {
+  font-weight: 400;
+  color: var(--color-accent);
+  font-size: 1.125rem;
+}
+
+.testimonial cite span {
+  opacity: 0.7;
+  font-size: 1rem;
+}
+
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  transition: var(--transition-smooth);
+}
+
+.dot.active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* Footer - Matching Navigation Design */
+.footer {
+  background-image: url('../public/image/menu_background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--color-warm-white);
+  padding: 6rem 0 3rem;
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4rem;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 60px;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-brand h3 {
+  font-family: var(--font-display);
+  color: var(--color-soft-beige);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.footer h4 {
+  color: var(--color-warm-white);
+  margin-bottom: 2rem;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1.125rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.footer address {
+  font-style: normal;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.footer a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.footer a:hover {
+  color: var(--color-accent);
+  transform: translateY(-1px);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.footer ul {
+  list-style: none;
+}
+
+.footer ul li {
+  margin-bottom: 1rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 3rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: 60px;
+  padding-right: 60px;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  :root {
+    --container-padding: 0 40px;
+  }
+  
+  .nav-container,
+  .about-statement-section,
+  .about-content-grid,
+  .rooms-grid-noma,
+  .experience-grid-editorial,
+  .ethos-statement-section,
+  .ethos-content-grid,
+  .testimonial-content,
+  .footer-grid,
+  .footer-bottom {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  .hero-text-overlay {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 120px 0;
+    --container-padding: 0 24px;
+  }
+  
+  .about-content-grid,
+  .experience-grid-editorial,
+  .ethos-content-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  .rooms-grid-noma {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+  
+  .nav-container,
+  .about-statement-section,
+  .about-content-grid,
+  .rooms-grid-noma,
+  .experience-grid-editorial,
+  .ethos-statement-section,
+  .ethos-content-grid,
+  .testimonial-content,
+  .footer-grid,
+  .footer-bottom {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  
+  .hero-text-overlay {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+}
+
+/* Smooth scrolling and performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .custom-cursor {
+    display: none;
+  }
+  
+  body {
+    cursor: auto;
+  }
+}
+
+/* Custom cursor interactions - Enhanced */
+@media (hover: hover) and (pointer: fine) {
+  .nav-links a,
+  .dot,
+  .footer a {
+    cursor: none;
+  }
+  
+  .nav-links a:hover ~ .custom-cursor,
+  .dot:hover ~ .custom-cursor,
+  .footer a:hover ~ .custom-cursor {
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+  
+  .nav-links a:hover ~ .custom-cursor svg {
+    transform: rotate(25deg) scale(1.2);
+    filter: drop-shadow(0 4px 8px rgba(44, 85, 48, 0.4));
+  }
+  
+  .dot:hover ~ .custom-cursor svg,
+  .footer a:hover ~ .custom-cursor svg {
+    transform: rotate(5deg) scale(1.1);
+  }
+}
+
+/* Special animation for room cards */
+.room-editorial-card:hover ~ .custom-cursor svg {
+  transform: rotate(35deg) scale(1.3);
+  animation: weed-sway 0.6s ease-in-out;
+}
+
+@keyframes weed-sway {
+  0%, 100% { transform: rotate(35deg) scale(1.3); }
+  50% { transform: rotate(25deg) scale(1.4); }
+}
+
+/* Experience Section - Editorial Style */
+.experience-noma {
+  background: var(--color-soft-beige);
+}
+
+.experience-content-section {
+  padding: 160px 0;
+}
+
+.experience-grid-editorial {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8rem;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 60px;
+  align-items: start;
+}
+
+.experience-text-section {
+  padding-top: 4rem;
+}
+
+.experience-subtitle {
+  font-size: 1.25rem;
+  color: var(--color-natural-brown);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  margin-bottom: 4rem;
+}
+
+.experience-list-minimal {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.experience-item-minimal h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--color-charcoal);
+  margin-bottom: 0.75rem;
+}
+
+.experience-item-minimal p {
+  font-size: 1rem;
+  color: var(--color-natural-brown);
+  line-height: 1.7;
+}
+
+.experience-hero-image {
+  width: 100%;
+  aspect-ratio: 4/5;
+  background-image: url('../public/image/rooms/Moroccan-beef-tagine-Recipe.jpeg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+/* Scattered Animation States - Architectural Alignment */
+.rooms-noma.scattered .rooms-hero-section {
+  transform: translateY(0px) translateX(0px) scale(0.9);
+
+}
+
+.rooms-noma.scattered .rooms-title-overlay {
+  transform: translateX(-100px) translateY(-20px);
+}
+
+.rooms-noma.scattered .scatter-item-1 {
+  transform: translateX(-5x) translateY(-120px) scale(1.2);
+  z-index: 4;
+}
+
+.rooms-noma.scattered .scatter-item-2 {
+  transform: translateX(50px) translateY(180px) scale(0.85);
+  z-index: 2;
+}
+
+.rooms-noma.scattered .scatter-item-3 {
+  transform: translateX(100px) translateY(-200px) scale(1.1);
+  z-index: 3;
+}
+
+/* Enhanced hover effects for scattered state */
+
+
+.rooms-noma.scattered .scatter-item-1:hover {
+  --scatter-x: -200px;
+  --scatter-y: -120px;
+  --scatter-scale: 1.2;
+}
+
+.rooms-noma.scattered .scatter-item-2:hover {
+  --scatter-x: 150px;
+  --scatter-y: 80px;
+  --scatter-scale: 0.85;
+}
+
+.rooms-noma.scattered .scatter-item-3:hover {
+  --scatter-x: -80px;
+  --scatter-y: -200px;
+  --scatter-scale: 1.1;
 }
