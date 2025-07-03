@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/dar-imim/static/css/main.b4724062.css",
+    "main.js": "/dar-imim/static/js/main.3435f8b8.js",
+    "static/js/453.759fc6a6.chunk.js": "/dar-imim/static/js/453.759fc6a6.chunk.js",
+    "static/media/menu_background.jpg": "/dar-imim/static/media/menu_background.41d935788d9ef51a88f6.jpg",
+    "static/media/knit-bg.png": "/dar-imim/static/media/knit-bg.b7e2902ddaa93ff3b161.png",
+    "static/media/carles-rabada-TbJg-UB7mGs-unsplash.jpg": "/dar-imim/static/media/carles-rabada-TbJg-UB7mGs-unsplash.ecb3d5c623fc8248fe1d.jpg",
+    "static/media/louis-hansel-uNzjCn0A5tI-unsplash.jpg": "/dar-imim/static/media/louis-hansel-uNzjCn0A5tI-unsplash.b7880e3112368e2c72b0.jpg",
+    "static/media/mathieu-chirico-sFSZuKI2CvY-unsplash.jpg": "/dar-imim/static/media/mathieu-chirico-sFSZuKI2CvY-unsplash.dd3a622e7905ae991a1d.jpg",
+    "static/media/moroccan-cape.png": "/dar-imim/static/media/moroccan-cape.785f21150d259bbe70f6.png",
+    "static/media/Nature-Inspired_Twisted_Suar_Wood_Wall_Coat_Rack-removebg-preview.png": "/dar-imim/static/media/Nature-Inspired_Twisted_Suar_Wood_Wall_Coat_Rack-removebg-preview.86c7601b1c3bf31c7b3c.png",
+    "static/media/taghazout_mountains.avif": "/dar-imim/static/media/taghazout_mountains.7ba1ae62b8a17991c11f.avif",
+    "static/media/Moroccan-beef-tagine-Recipe.jpeg": "/dar-imim/static/media/Moroccan-beef-tagine-Recipe.770a4e2d1998728685df.jpeg",
+    "index.html": "/dar-imim/index.html",
+    "main.b4724062.css.map": "/dar-imim/static/css/main.b4724062.css.map",
+    "main.3435f8b8.js.map": "/dar-imim/static/js/main.3435f8b8.js.map",
+    "453.759fc6a6.chunk.js.map": "/dar-imim/static/js/453.759fc6a6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b4724062.css",
+    "static/js/main.3435f8b8.js"
+  ]
+}
