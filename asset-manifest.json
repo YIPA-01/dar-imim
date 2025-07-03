@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/dar-imim/static/css/main.b4724062.css",
-    "main.js": "/dar-imim/static/js/main.a01a1352.js",
+    "main.js": "/dar-imim/static/js/main.3434abc8.js",
     "static/js/453.759fc6a6.chunk.js": "/dar-imim/static/js/453.759fc6a6.chunk.js",
     "static/media/menu_background.jpg": "/dar-imim/static/media/menu_background.41d935788d9ef51a88f6.jpg",
     "static/media/knit-bg.png": "/dar-imim/static/media/knit-bg.b7e2902ddaa93ff3b161.png",
@@ -14,11 +14,11 @@
     "static/media/Moroccan-beef-tagine-Recipe.jpeg": "/dar-imim/static/media/Moroccan-beef-tagine-Recipe.770a4e2d1998728685df.jpeg",
     "index.html": "/dar-imim/index.html",
     "main.b4724062.css.map": "/dar-imim/static/css/main.b4724062.css.map",
-    "main.a01a1352.js.map": "/dar-imim/static/js/main.a01a1352.js.map",
+    "main.3434abc8.js.map": "/dar-imim/static/js/main.3434abc8.js.map",
     "453.759fc6a6.chunk.js.map": "/dar-imim/static/js/453.759fc6a6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b4724062.css",
-    "static/js/main.a01a1352.js"
+    "static/js/main.3434abc8.js"
   ]
 }
